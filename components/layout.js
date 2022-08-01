@@ -1,6 +1,7 @@
 import React from "react";
 import Head from "next/head";
 import NavBar from "./navbar";
+import Footer from "./footer";
 
 
 
@@ -14,9 +15,11 @@ function Layout({children,title}) {
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
             </Head>
            <main>
-               <NavBar children={children}/>
+               <NavBar/>
+               {children}
            </main>
             <footer>
+                <NavBar/>
             </footer>
         </div>
 

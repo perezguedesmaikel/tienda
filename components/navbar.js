@@ -1,79 +1,91 @@
 import * as React from 'react';
+import { styled } from '@mui/material/styles';
 import AppBar from '@mui/material/AppBar';
-import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
 import CssBaseline from '@mui/material/CssBaseline';
-import useScrollTrigger from '@mui/material/useScrollTrigger';
-import Box from '@mui/material/Box';
-import Container from '@mui/material/Container';
+import Toolbar from '@mui/material/Toolbar';
+import Paper from '@mui/material/Paper';
 import Fab from '@mui/material/Fab';
-import { FaArrowAltCircleUp } from "react-icons/fa";
-import style from "../styles/Navbar.module.css";
-import { BsBoxArrowInUp } from "react-icons/bs";
+import Link from "next/link";
+import {BiStoreAlt } from "react-icons/bi";
+import { BiMenu } from "react-icons/bi";
+import { AiOutlineLock } from "react-icons/ai";
+import { BiHelpCircle } from "react-icons/bi";
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 
 
-import Fade from '@mui/material/Fade';
-
-function ScrollTop(props) {
-    const { children, window } = props;
-    // Note that you normally won't need to set the window ref as useScrollTrigger
-    // will default to window.
-    // This is only being set here because the demo is in an iframe.
-    const trigger = useScrollTrigger({
-        target: window ? window() : undefined,
-        disableHysteresis: true,
-        threshold: 100,
-    });
-
-    const handleClick = (event) => {
-        const anchor = (event.target.ownerDocument || document).querySelector(
-            '#back-to-top-anchor',
-        );
-
-        if (anchor) {
-            anchor.scrollIntoView({
-                block: 'center',
-            });
-        }
-    };
-
-    return (
-        <Fade in={trigger}>
-            <Box
-
-                onClick={handleClick}
-                role="presentation"
-                sx={{ position: 'fixed', bottom: 16, right: 16 }}
-            >
-                {children}
-            </Box>
-        </Fade>
-    );
-}
 
 
-export default function NavBar(props) {
+const StyledFab = styled(Fab)({
+    position: 'absolute',
+    zIndex: 1,
+    top: 5,
+    left: 0,
+    right: 0,
+    margin: '0 auto',
+    padding:0,
+    height:70,
+    width:70
+});
+const Styledo = styled(Fab)({
+    position: 'absolute',
+    zIndex: 1,
+    top: 5,
+    left: 140,
+    right: 0,
+    margin: '0 auto',
+});
+const Style2 = styled(Fab)({
+    position: 'absolute',
+    zIndex: 1,
+    top: 5,
+    left: 260,
+    right: 0,
+    margin: '0 auto',
+});
+const Style3 = styled(Fab)({
+    position: 'absolute',
+    zIndex: 1,
+    top: 5,
+    left: 0,
+    right: 140,
+    margin: '0 auto',
+});
+const Style4 = styled(Fab)({
+    position: 'absolute',
+    zIndex: 1,
+    top: 5,
+    left: 0,
+    right: 260,
+    margin: '0 auto',
+});
+
+export default function NavBar() {
     return (
         <React.Fragment>
             <CssBaseline />
-            <AppBar>
+            <Paper square sx={{ pb: '50px' }}>
+
+            </Paper>
+            <AppBar position="fixed" color="primary" sx={{ top:0, bottom: 'auto' }}>
                 <Toolbar>
-                    <Typography variant="h6" component="div">
-                        Scroll to see button
-                    </Typography>
+                    <StyledFab color="secondary" aria-label="add">
+                        <Link href={'/'}><a className='text-6xl'><BiMenu/></a></Link>
+                    </StyledFab>
+                    <Styledo color="secondary" aria-label="add">
+                        <Link href={'/suscribirse'}><a className='text-3xl'><ShoppingCartIcon/></a></Link>
+                    </Styledo>
+                    <Style3 color="secondary" aria-label="add">
+                        <Link href={'/suscribirse'}><a className='text-3xl'><AiOutlineLock/></a></Link>
+                    </Style3>
+                    <Style2 color="secondary" aria-label="add">
+                        <Link href={'/suscribirse'}><a className='text-3xl'><BiHelpCircle/></a></Link>
+                    </Style2>
+                    <Style4 color="secondary" aria-label="add">
+                        <Link href={'/'}><a className='text-3xl'><BiStoreAlt/></a></Link>
+                    </Style4>
                 </Toolbar>
             </AppBar>
-            <Toolbar id="back-to-top-anchor" />
-            <Container>
-                <Box sx={{ my: 2 }}>
-                    {props.children}
-                </Box>
-            </Container>
-            <ScrollTop {...props}>
-                <Fab size="small" aria-label="scroll back to top">
-                    <FaArrowAltCircleUp className={style.iconoFlecha} />
-                </Fab>
-            </ScrollTop>
         </React.Fragment>
     );
 }
+
