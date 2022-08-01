@@ -7,7 +7,10 @@ import useScrollTrigger from '@mui/material/useScrollTrigger';
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import Fab from '@mui/material/Fab';
-import { AiFillCustomerService } from "react-icons/ai";
+import { FaArrowAltCircleUp } from "react-icons/fa";
+import style from "../styles/Navbar.module.css";
+import { BsBoxArrowInUp } from "react-icons/bs";
+
 
 import Fade from '@mui/material/Fade';
 
@@ -37,6 +40,7 @@ function ScrollTop(props) {
     return (
         <Fade in={trigger}>
             <Box
+
                 onClick={handleClick}
                 role="presentation"
                 sx={{ position: 'fixed', bottom: 16, right: 16 }}
@@ -62,16 +66,12 @@ export default function NavBar(props) {
             <Toolbar id="back-to-top-anchor" />
             <Container>
                 <Box sx={{ my: 2 }}>
-                    {[...new Array(12)]
-                        .map(
-                            () => {props.children},
-                        )
-                        .join('\n')}
+                    {props.children}
                 </Box>
             </Container>
             <ScrollTop {...props}>
                 <Fab size="small" aria-label="scroll back to top">
-                    <AiFillCustomerService />
+                    <FaArrowAltCircleUp className={style.iconoFlecha} />
                 </Fab>
             </ScrollTop>
         </React.Fragment>
