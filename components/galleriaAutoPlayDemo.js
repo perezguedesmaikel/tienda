@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { PhotoService } from '../service/PhotoService';
 import { Galleria } from 'primereact/galleria';
 import style from '../styles/Slide.module.css';
+import Image from 'next/image';
 
 const GalleriaAutoPlayDemo = () => {
 
@@ -33,13 +34,14 @@ const GalleriaAutoPlayDemo = () => {
     }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
     const itemTemplate = (item) => {
-        return <img src={item.itemImageSrc} onError={(e) => e.target.src='https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png'} alt={item.alt}
-       className={style.imagenSlide}
+        return <Image src={'/'+item.itemImageSrc} onError={(e) => e.target.src='https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png'} alt={item.alt}
+       className={style.imagenSlide}  width='100%' height='100%'
         />;
     }
 
     const thumbnailTemplate = (item) => {
-        return <img src={item.thumbnailImageSrc} onError={(e) => e.target.src='https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png'} alt={item.alt}  />;
+        return <Image src={'/'+item.thumbnailImageSrc} onError={(e) => e.target.src='https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png'} alt={item.alt}
+                      width='100%' height='100%' />;
     }
 
     return (
