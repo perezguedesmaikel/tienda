@@ -20,9 +20,6 @@ function Layout({children,title}) {
                <GalleriaAutoPlayDemo/>
                {children}
            </main>
-            <footer>
-                <NavBar/>
-            </footer>
         </div>
 
     )
