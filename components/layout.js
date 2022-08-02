@@ -2,6 +2,7 @@ import React from "react";
 import Head from "next/head";
 import NavBar from "./navbar";
 import Footer from "./footer";
+import GalleriaAutoPlayDemo from "./galleriaAutoPlayDemo";
 
 
 
@@ -16,6 +17,7 @@ function Layout({children,title}) {
             </Head>
            <main>
                <NavBar/>
+               <GalleriaAutoPlayDemo/>
                {children}
            </main>
             <footer>

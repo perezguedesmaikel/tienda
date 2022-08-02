@@ -11,6 +11,7 @@ import { BiMenu } from "react-icons/bi";
 import { AiOutlineLock } from "react-icons/ai";
 import { BiHelpCircle } from "react-icons/bi";
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import GalleriaAutoPlayDemo from "./galleriaAutoPlayDemo";
 
 
 
@@ -85,6 +86,7 @@ export default function NavBar() {
                     </Style4>
                 </Toolbar>
             </AppBar>
+
         </React.Fragment>
     );
 }
